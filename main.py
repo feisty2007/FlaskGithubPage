@@ -93,7 +93,7 @@ def save_md_file(title, md_file_name, category, md_text):
     lines.append(md_text)
 
     with open(post_file_name, 'w') as f:
-        f.writelines([line + "\n" + "\n" for line in lines])
+        f.writelines([line + "\n" for line in lines])
 
 
 @app.route("/admin/saveContent", methods=["POST"])
@@ -104,6 +104,8 @@ def save():
     md_text = request.form["md_text"]
 
     md_text = str(md_text).replace("/static/uploads", "/assets/images")
+    title = str(title).replace(".", "-")
+
     print(md_text)
 
     save_md_file(title, md_file_name, category, md_text)
