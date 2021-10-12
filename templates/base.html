@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css" />
+    {% block css %}
+    {% endblock %}
+</head>
+<body bgcolor="#F0FFF0">
+
+
+<div style="padding: 20px 20%">
+{% block content %}
+{% endblock %}
+</div>
+<script src="../static/layui/layui.js"></script>
+{% block js %}
+{% endblock %}
+<script>
+    layui.use(["jquery","element","form"],function () {
+        var $ = layui.jquery;
+        var element = layui.element;
+        var form = layui.form;
+
+        form.render();
+
+
+        $(document).on("click","#logout",function () {
+            localStorage.clear();
+        })
+    })
+</script>
+</body>
+</html>
