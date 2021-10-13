@@ -1,8 +1,8 @@
-Visual Github page Editor
+#### Visual Github page Editor
 
 ![](/images/flask-githubpage-editor.png)
 
-Point:
+#### Point:
 
 * use editor.md to edit md file
 
@@ -12,24 +12,31 @@ Point:
 
 * auot insert img and place to corrent file position
 
-Enviroment:
+#### Enviroment:
 
-  python3+ 
+  	python3+ 
 
-  flask
+ 	 flask
 
-How to Use
-  one step:
+#### How to Use
+
+#####   one step:
+
   	pip install flask
 
-  seond step:
+#####   seond step:
+
   	edit main.py change github.io path and types
   	
-  three:
+
+#####   three:
+
   	run main.py 
   	it run on http://localhost:5000 edit your blog
   	
-  final:
+
+#####   final:
+
   	cd into your github.io path
   	git commit
 
