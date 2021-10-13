@@ -1,4 +1,5 @@
 import time
+import datetime
 
 
 class TimeUtil:
@@ -17,6 +18,13 @@ class TimeUtil:
 
     def getTime(self):
         return time.localtime(time.time())
+
+    def getYesterday(self):
+        today = datetime.date.today()
+        oneday = datetime.timedelta(days=1)
+        yesterday = today - oneday
+        return str(yesterday)
+
 
 
 class TimeObj:

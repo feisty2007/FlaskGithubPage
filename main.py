@@ -93,7 +93,7 @@ def save_md_file(title, md_file_name, category, md_text):
     lines.append("")
     lines.append(md_text)
 
-    with open(post_file_name, 'w') as f:
+    with open(post_file_name, 'w',encoding='utf-8') as f:
         f.writelines([line + "\n" for line in lines])
 
 
