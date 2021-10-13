@@ -21,6 +21,7 @@ images_dir = github_io_dir + "assets/images/"
 time_util = TimeUtil()
 file_util = FileUtil()
 uuid_uitl = UUIDUtil()
+today_str = time_util.today()
 
 
 @app.route('/rev/<float:revNo>')
@@ -72,22 +73,22 @@ def edit():
 
 
 def save_md_file(title, md_file_name, category, md_text):
-    today_str = time_util.today()
+
     file_title = "-".join(md_file_name.split(" "))
     all_md_file_name = today_str + "-" + file_title + ".md"
     post_file_name = github_io_dir + "/_posts/" + all_md_file_name
 
     lines = []
     lines.append("---")
-    lines.append("layout: post")
-    lines.append("title: \"%s\"" % (title))
+    lines.append("layout:   post")
+    lines.append("title:    \"%s\"" % (title))
     lines.append("crawlertitle: \"%s\"" % (title))
-    lines.append("description: \"%s\"" % (title))
-    lines.append("summary: \"%s\"" % (title))
-    #lines.append("date: %s" % (time_util.now().toStr()))
-    lines.append("categories: %s" % (category))
+    lines.append("description:  \"%s\"" % (title))
+    lines.append("summary:  \"%s\"" % (title))
+    lines.append("date: %s" % (time_util.now().toStr()))
+    lines.append("categories:   %s" % (category))
     lines.append("tags: [%s]" % (category))
-    lines.append("author: \"feisty2007\"")
+    lines.append("author:   \"feisty2007\"")
     lines.append("---")
     lines.append("")
     lines.append(md_text)
@@ -119,7 +120,7 @@ def genuuid(filename):
     file_ext = file_util.getExt(filename)
     uuid = uuid_uitl.gen()
 
-    return uuid + "." + file_ext
+    return today_str + "-" + uuid + "." + file_ext
 
 
 @app.route("/uploadfile", methods=["POST"])
