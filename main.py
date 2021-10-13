@@ -23,47 +23,13 @@ file_util = FileUtil()
 uuid_uitl = UUIDUtil()
 today_str = time_util.today()
 
-
-@app.route('/rev/<float:revNo>')
-def revision(revNo):
-    return 'Revision Number %f' % revNo
-
-
-@app.route('/guest/<guest>')
-def hello_guest(guest):
-    return 'Hello %s as Guest' % guest
-
-
-@app.route('/')
+@app.route("/")
 def index():
-    # 往模板中传入的数据
-    my_str = 'Hello Word'
-    my_int = 10
-    my_array = [3, 4, 2, 1, 7, 9]
-    my_dict = {
-        'name': 'xiaoming',
-        'age': 18
-    }
-    return render_template('hello.html',
-                           my_str=my_str,
-                           my_int=my_int,
-                           my_array=my_array,
-                           my_dict=my_dict
-                           )
-
+    return edit()
 
 @app.route('/index')
 def r_index():
-    return index()
-
-
-@app.route('/user/<name>')
-def hello_user(name):
-    if name == 'admin':
-        return redirect(url_for('hello_admin'))
-    else:
-        return redirect(url_for('hello_guest', guest=name))
-
+    return edit()
 
 @app.route("/edit")
 def edit():
