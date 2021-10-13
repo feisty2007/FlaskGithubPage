@@ -5,15 +5,14 @@
 
 __author__ = 'Ming gong'
 
-import time
-
-from flask import Flask, render_template, url_for, jsonify, request
-from werkzeug.utils import redirect
-from TimeUtil import TimeUtil
-from FileUtil import FileUtil
-from UUIDUtil import UUIDUtil
 import os
 import shutil
+
+from flask import Flask, render_template, jsonify, request
+
+from FileUtil import FileUtil
+from TimeUtil import TimeUtil
+from UUIDUtil import UUIDUtil
 
 app = Flask(__name__)
 github_io_dir = "C:/git/feisty2007.github.io/"
@@ -23,13 +22,16 @@ file_util = FileUtil()
 uuid_uitl = UUIDUtil()
 today_str = time_util.today()
 
+
 @app.route("/")
 def index():
     return edit()
 
+
 @app.route('/index')
 def r_index():
     return edit()
+
 
 @app.route("/edit")
 def edit():
@@ -39,7 +41,6 @@ def edit():
 
 
 def save_md_file(title, md_file_name, category, md_text):
-
     file_title = "-".join(md_file_name.split(" "))
     all_md_file_name = today_str + "-" + file_title + ".md"
     post_file_name = github_io_dir + "/_posts/" + all_md_file_name
@@ -59,7 +60,7 @@ def save_md_file(title, md_file_name, category, md_text):
     lines.append("")
     lines.append(md_text)
 
-    with open(post_file_name, 'w',encoding='utf-8') as f:
+    with open(post_file_name, 'w', encoding='utf-8') as f:
         f.writelines([line + "\n" for line in lines])
 
 
@@ -100,7 +101,7 @@ def uploadFile():
     upload_path = os.path.join(basepath, 'static/uploads/', uuid_file_name)  # 注意：没有的文件夹一定要先创建，不然会提示没有该路径
     assert_path = images_dir + uuid_file_name
     f.save(upload_path)
-    shutil.copy(upload_path,assert_path)
+    shutil.copy(upload_path, assert_path)
 
     resp = {
         "success": 1,
