@@ -15,7 +15,7 @@ from TimeUtil import TimeUtil
 from UUIDUtil import UUIDUtil
 
 app = Flask(__name__)
-github_io_dir = "C:/git/feisty2007.github.io/"
+github_io_dir = "C:/git/xxxx.github.io/"
 images_dir = github_io_dir + "assets/images/"
 time_util = TimeUtil()
 file_util = FileUtil()
