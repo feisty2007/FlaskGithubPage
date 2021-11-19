@@ -15,7 +15,7 @@ from TimeUtil import TimeUtil
 from UUIDUtil import UUIDUtil
 
 app = Flask(__name__)
-github_io_dir = "C:/git/xxxx.github.io/"
+github_io_dir = "d:/git/feisty2007.github.io/"
 images_dir = github_io_dir + "assets/images/"
 time_util = TimeUtil()
 file_util = FileUtil()
@@ -35,7 +35,7 @@ def r_index():
 
 @app.route("/edit")
 def edit():
-    types = ['心情', 'blog', '工具', '软件']
+    types = ['心情', 'blog', '工具', '软件', '机器学习']
     return render_template('edit.html',
                            category=types)
 
