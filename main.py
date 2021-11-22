@@ -74,12 +74,12 @@ def save():
     md_text = str(md_text).replace("/static/uploads", "/assets/images")
     title = str(title).replace(".", "-")
 
-    print(md_text)
+    #print(md_text)
 
     save_md_file(title, md_file_name, category, md_text)
 
     recognize_info = {'code': 0,
-                      'msg': "保存成功"}
+                      'msg': "保存成功，长度%s" % (len(md_text) }
     return jsonify(recognize_info), 201
 
 
