@@ -15,7 +15,7 @@ from TimeUtil import TimeUtil
 from UUIDUtil import UUIDUtil
 
 app = Flask(__name__)
-github_io_dir = "d:/git/feisty2007.github.io/"   #这里修改到你的目录
+github_io_dir = "c:/git/feisty2007.github.io/"   #这里修改到你的目录
 images_dir = github_io_dir + "assets/images/"
 time_util = TimeUtil()
 file_util = FileUtil()
@@ -79,7 +79,7 @@ def save():
     save_md_file(title, md_file_name, category, md_text)
 
     recognize_info = {'code': 0,
-                      'msg': "保存成功，长度%s" % (len(md_text) }
+                      'msg': "保存成功，长度%s" % (len(md_text)) }
     return jsonify(recognize_info), 201
 
 
