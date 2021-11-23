@@ -40,4 +40,7 @@
   	cd into your github.io path
   	git commit
 
-  
+### Special thanks
+
+JetBrains have given me a right to use all of their product for 1 year!
+thanks for their support!
